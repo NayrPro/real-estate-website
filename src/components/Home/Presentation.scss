@@ -1,0 +1,76 @@
+.home-section {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    background-color: #fff;
+    background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    .slogan {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 1px 1px #000;
+      text-align: center;
+    }
+  
+    .description {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+    .property-search-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+      background-color: #eee;
+      border-radius: 5px;
+    }
+  
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      margin: 0.5rem;
+    }
+  
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    select {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+  
+    .search-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #0077ff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  
+      &:hover {
+        background-color: #0052d6;
+      }
+    }
+  }
+  
