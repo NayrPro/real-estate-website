@@ -15,6 +15,9 @@ const ClientFeedbackSection: React.FC<ClientFeedbackSectionProps> = ({
       <div className="client-feedback-cards">
         {clientFeedbacks.map((feedback) => (
           <div className="client-feedback-card" key={feedback.id}>
+            <div>
+	            <img src={feedback.img}/>
+            </div>
             <div className="client-feedback-text">
               <p>{feedback.text}</p>
             </div>

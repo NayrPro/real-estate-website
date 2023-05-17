@@ -1,8 +1,17 @@
 .footer {
-    background-color: #f8f9fa;
-    padding: 60px 0;
-    padding-bottom: 0;
-    
+    background-color: #828e9b;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    .row{ 
+      display: flex;
+      gap: 40px;
+      justify-content: space-around;
+      margin-left: 60px;
+      margin-bottom: 136px;
+      margin-right: 100px;
+    }
+
     h4 {
       font-weight: 600;
       margin-bottom: 20px;
@@ -11,18 +20,25 @@
     
     p {
       font-size: 14px;
-      color: #6c757d;
+      color: white;
       line-height: 1.5;
     }
     
+    ul{
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
     ul li {
       font-size: 14px;
-      color: #6c757d;
+      color: white;
       line-height: 1.5;
     }
     
     ul li a {
-      color: #6c757d;
+      color: white;
       text-decoration: none;
     }
     
@@ -38,7 +54,6 @@
     }
     
     .footer-bottom {
-      background-color: #343a40;
       padding: 15px 0;
       color: #fff;
       

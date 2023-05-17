@@ -1,5 +1,4 @@
 .properties {
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
   
@@ -8,11 +7,18 @@
       font-size: 2rem;
       margin-bottom: 20px;
     }
-  
-    .property-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      grid-gap: 20px;
+
+    @media only screen and (max-width: 1200px) {
+      .swiper {
+         width: 80%;
+      }
     }
+
+    @media only screen and (max-width: 780px) {
+      .swiper {
+         width: 60%;
+      }
+    }
+    
   }
   

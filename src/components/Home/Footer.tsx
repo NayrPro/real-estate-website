@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="footer-bottom">
         <div className="container">
-          <div className="row">
+          <div>
             <div className="col-md-12">
               <p>&copy; {new Date().getFullYear()} Real Estate Website. All Rights Reserved.</p>
             </div>
