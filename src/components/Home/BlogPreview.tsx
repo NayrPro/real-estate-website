@@ -4,6 +4,7 @@ import './BlogPreview.scss';
 export type BlogArray = {
   title: string;
   description: string;
+  img: string;
 };
 
 type Props = {
@@ -16,7 +17,11 @@ export const BlogPreview: React.FC<Props> = ({ posts }) => {
       <h2 className="blog-preview-section__title">Latest Blog Posts</h2>
       <div className="blog-preview-section__posts">
         {posts.map((post, index) => (
-          <div className="blog-preview-card" key={index}>
+          <div 
+            className="blog-preview-card" 
+            key={index}
+            style={{backgroundImage: 'url('+post.img+'})'}}
+          >
             <h3 className="blog-preview-card__title">{post.title}</h3>
             <p className="blog-preview-card__description">{post.description}</p>
             <Link to={`/blog/${index}`} className="blog-preview-card__link">

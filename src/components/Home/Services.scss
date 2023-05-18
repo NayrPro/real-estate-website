@@ -49,5 +49,14 @@
         }
       }
     }
+    @media only screen and (max-width: 1000px) {
+      .card-row {
+         flex-direction: column;
+       .card {
+         margin: auto auto 30px;
+         width: 47%;
+        }
+      }
+    }
   }
   

@@ -8,9 +8,22 @@
     position: fixed;
     top: 0;
     z-index: 5000;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: -moz-available;          
+    width: -webkit-fill-available;  
     width: fill-available;
+  }
+
+  .navbar__dropdown {
+    display: block;
+    margin: auto;
+    border: none;
+    background-color: white;
+    margin-left: 33%;
+  }
+
+  .navbar__dropdown .material-symbols-outlined{
+      font-size: 3rem !important;
+      font-weight: bold !important;
   }
   
   .navbar__logo {

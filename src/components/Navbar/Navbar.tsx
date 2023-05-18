@@ -1,11 +1,33 @@
+import { useState, useEffect } from "react";
 import './Navbar.scss';
 import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  useEffect(()=>{
+    setWindowSize(window.innerWidth)
+    
+  }, [windowSize]);
   return (
     <nav className="navbar">
       <div className="navbar__logo">@Home</div>
-      <ul className="navbar__list">
+      <button className="navbar__dropdown" style={{display: windowSize<700? "block" : "none"}}><span className="material-symbols-outlined">
+menu
+</span></button>
+      <ul className="navbar__list" style={{display: windowSize>700? "flex" : "none"}}>
         <li className="navbar__item">
           {/* <a href="/" className="navbar__link">Home</a> */}
           <Link to="/" className="navbar__link">Home</Link>

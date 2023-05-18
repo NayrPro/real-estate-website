@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Property } from './Property';
 import './PropertyCard.scss';
 
@@ -10,8 +11,25 @@ function formatNumber(num) {
 }
 
 
-
 const PropertyCard: React.FC<Props> = ({ property }) => {
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  
+    useEffect(() => {
+      const handleWindowResize = () => {
+        setWindowSize(window.innerWidth);
+      };
+      
+      window.addEventListener('resize', handleWindowResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
+  
+    useEffect(()=>{
+      setWindowSize(window.innerWidth)
+      
+    }, [windowSize]);
   return (
     <div className="property-card">
       <img src={property.image} alt={property.description} />
@@ -21,12 +39,16 @@ const PropertyCard: React.FC<Props> = ({ property }) => {
         <h2 className="city">{property.city} , {property.state}</h2>
         <div className="property-details">
           <div className="detail">
-            <span className="label">Beds:</span> {property.bedrooms}
+            <span className="label">{windowSize>700? "Beds:" : <span className="material-symbols-outlined">
+bed
+</span>}</span> {property.bedrooms}
           </div>
           <div className="detail">
-            <span className="label">Baths:</span> {property.bathrooms}
+            <span className="label">{windowSize>700? "Baths:" : <span className="material-symbols-outlined">
+bathtub
+</span>}</span> {property.bathrooms}
           </div>
-          <div className="detail">
+          <div className="detail" style={{display: windowSize<700? "none": "block"}}>
             <span className="label">Sqft:</span> {property.sqft}
           </div>
         </div>

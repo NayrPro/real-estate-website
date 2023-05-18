@@ -1,21 +1,30 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
 .footer {
     background-color: #828e9b;
     padding-top: 40px;
     padding-bottom: 20px;
 
-    .row{ 
+    .row {
       display: flex;
-      gap: 40px;
+      // gap: 200px;
+      gap: 5%;
       justify-content: space-around;
-      margin-left: 60px;
-      margin-bottom: 136px;
-      margin-right: 100px;
-    }
+      // margin-left: 60px;
+      // margin-bottom: 136px;
+      // margin-right: 100px;
+      margin: 0px 8% 11% 4%;
+
+      p{
+        width: 51%;
+      }
+    } 
 
     h4 {
       font-weight: 600;
       margin-bottom: 20px;
       color: #343a40;
+      width: max-content;
     }
     
     p {
@@ -44,8 +53,15 @@
     
     ul.list-inline {
       li {
-        display: inline-block;
         margin-right: 10px;
+        a{
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          span{
+            line-height: inherit;
+          }
+        }
         
         &:last-child {
           margin-right: 0;
@@ -63,5 +79,25 @@
         text-align: center;
       }
     }
+
+    @media only screen and (max-width: 800px) {
+      .row {
+          margin: 0px 8% 4% 4%;
+          flex-direction: column;
+          div {
+              margin-bottom: 8%;
+              h4,p{
+                  margin: auto;
+                  margin-top: 1rem;
+              }
+              p{
+                text-align: center;
+              }
+              ul li{
+                  margin: auto !important;   
+              }
+          }
+        }      
   }
+}
   

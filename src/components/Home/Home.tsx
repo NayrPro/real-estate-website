@@ -31,14 +31,17 @@ const clientFeedbacks: ClientFeedbackAttributes[] = [
     {
       title: 'Top 10 Tips for First-Time Homebuyers',
       description: 'Avoid rookie mistakes',
+      img:"https://images.unsplash.com/photo-1598257006626-48b0c252070d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
     },
     {
       title: 'How to Negotiate the Best Deal on Your Next Home',
       description: 'Get the most bang for your buck',
+      img:"https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
     },
     {
       title: 'The Pros and Cons of Buying a Fixer-Upper',
       description: 'Is it worth the investment?',
+      img:"https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=996&q=80"
     }
   ];
 
