@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
 import './BlogPreview.scss';
-
-export type BlogArray = {
-  title: string;
-  description: string;
-  img: string;
-};
+import { BlogArray } from './models/BlogModel';
 
 type Props = {
   posts: BlogArray[];
@@ -20,10 +15,10 @@ export const BlogPreview: React.FC<Props> = ({ posts }) => {
           <div 
             className="blog-preview-card" 
             key={index}
-            style={{backgroundImage: 'url('+post.img+'})'}}
+            style={{backgroundImage: 'url('+post.image+'})'}}
           >
             <h3 className="blog-preview-card__title">{post.title}</h3>
-            <p className="blog-preview-card__description">{post.description}</p>
+            <p className="blog-preview-card__description">{post.body}</p>
             <Link to={`/blog/${index}`} className="blog-preview-card__link">
               Read More
             </Link>

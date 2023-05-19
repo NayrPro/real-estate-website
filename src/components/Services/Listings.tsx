@@ -43,7 +43,7 @@ useEffect(()=>{
   
 }, [windowSize]);
 
-const [properties, setProperties] = useState<Property[]>([
+const properties : Property[] = [
     {
       _id: '1',
       description: 'Luxury Apartment in Manhattan',
@@ -123,7 +123,7 @@ const [properties, setProperties] = useState<Property[]>([
       image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     
-  ]);
+  ];
   return (
     <div className="properties">
       <h1>Properties for Sale</h1>

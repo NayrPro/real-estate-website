@@ -13,9 +13,14 @@
     width: fill-available;
   }
 
+  .navbar__services{
+    position: absolute;
+    right: 359px;
+    top: 68px;
+    background-color: white;
+  }
+
   .navbar__dropdown {
-    display: block;
-    margin: auto;
     border: none;
     background-color: white;
     margin-left: 33%;
@@ -29,25 +34,71 @@
   .navbar__logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+
+  .navbar__logo:visited, .navbar__logo:active, .navbar__logo:hover{
+    color:inherit !important;
+    text-decoration: none !important;
   }
   
   .navbar__list {
     display: flex;
-    list-style: none;
+    // list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .navbar__list__column {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    margin-top: 1.05rem;
+    list-style-type: none;
+    top: 68px;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    left: 0;
+    text-align: center;
+    padding-left: 0;
   }
   
   .navbar__item {
     margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    a, span{
+      display: inherit;
+    }
+  }
+
+  .navbar__item__column {
+    padding: 17px;
+    border: 1px solid beige;
   }
   
   .navbar__link {
     color: #333333;
     text-decoration: none;
+    cursor: pointer;
   
     &:hover {
       color: #666666;
     }
   }
-  
+
+  @media only screen and (max-width: 700px) {
+    
+    .navbar__link{
+        display: block;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: fill-available;
+    }
+    #servicesParent{
+      padding-bottom: 0;
+    }
+}

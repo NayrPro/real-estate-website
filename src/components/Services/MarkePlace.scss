@@ -1,0 +1,63 @@
+.service-page{
+    margin: 4.4rem 3% 25rem 3%;
+ 
+
+.property-search-form{
+    margin: 6rem 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    justify-content: center;
+}
+
+.form-row select {
+    padding: 14px 18px;
+}
+
+.search-btn{
+    background-color: #2e72ff;
+    border: 1px solid beige;
+    border-radius: 5px;
+    color: white;
+    padding: 14px 18px;
+}
+
+.property-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1% 1%;
+    padding-bottom: 5rem;
+}
+
+.property-card{
+    height: 314px;
+}
+
+.property-card img {
+    height: 145px;
+}
+
+.property-card .card-bottom {
+    padding: 9px;
+}
+
+.property-card h2 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+
+.property-card p {
+    margin: 0 10px 0px;
+    font-size: .8rem;
+}
+
+.property-card .property-details {
+    margin-top: 12px;
+    padding-top: 21px;
+}
+
+.property-card .property-details .detail {
+    font-size: 0.9rem;
+}
+
+}
