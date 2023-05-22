@@ -26,7 +26,6 @@ const Navbar: React.FC = () => {
   }, [windowSize]);
 
   const handleClick = (e) => {
-    console.log(e.target);
     if(e.target.id == "services"){
       (dropArrow == "up") ? setDropArrow("down") : setDropArrow("up");
     }else{
@@ -34,10 +33,6 @@ const Navbar: React.FC = () => {
       (dropArrow == "down") && setDropArrow("up");
     }
   };
-
-  // useEffect(() => {
-
-  // }, [showMenu])
 
   return (
     <nav className="navbar">

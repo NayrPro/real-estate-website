@@ -24,6 +24,10 @@ a {
   }
 }
 
+.post-list {
+  margin-top: 5rem;
+}
+
 // Page styles
 .blog-page {
   display: flex;
@@ -54,6 +58,7 @@ a {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: $space-3;
       margin-right: $space-3;
+      margin-top: 5rem;
     }
 
     .sidebar {

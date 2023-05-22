@@ -10,5 +10,8 @@ export interface Property {
     state: string;
     zip: string;
     address: string;
+    seller: string;    
+    toBuy: boolean;    
+    toRent: boolean;    
   }
   

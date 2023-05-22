@@ -1,82 +1,75 @@
-import { useState } from 'react'; 
+import * as Yup from 'yup'
 import './Signup.scss';
+import { ErrorMessage, Field, Formik, Form } from 'formik';
+import TextError from '../Formik/TextError';
+import { FormType } from '../Formik/FormType';
+import { OptionsMap } from '../Formik/OptionsMap';
 
-interface SignUpFormData {
-    username: string;
-    email: string;
-    password: string;
-    userType: 'seller' | 'blogger' | 'none';
-  }
-  
+
 export const SignUpForm = () => {
-    const [formData, setFormData] = useState<SignUpFormData>({
+  
+  const options = {
+    default: 'Choose an option',
+    seller: 'Seller',
+    blogger: 'Blogger'
+  }
+
+  const InitialValues = {
       username: '',
       email: '',
       password: '',
-      userType: 'none'
-    });
+      usertype: '',
+  }
+
+  const validationSchema = Yup.object({
+    username: Yup.string().required("Username required"),
+    email: Yup.string().required("Email required"),
+    password: Yup.string().required("Password required"),
+    usertype: Yup.string().required("Role required")
+  })
+
+  const onSubmit = values =>{
+    console.log('Form data', values)
+  }
   
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, value } = e.target;
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: value
-      }));
-    };
-  
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      console.log(formData);
-      // send the form data to the server
-    };
-  
-    return (
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>Create an account</h2>
-        <div className="form-control">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="userType">I am a:</label>
-          <select name="userType" id="userType" value={formData.userType} onChange={handleInputChange}>
-            <option value="none">Choose an option</option>
-            <option value="seller">Seller</option>
-            <option value="blogger">Blogger</option>
-            <option value="none">None</option>
-          </select>
-        </div>
-        <button type="submit">Sign up</button>
-      </form>
-    );
-  };
-  
+  return (
+    <Formik initialValues={InitialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}>
+            {
+                formik => (
+                <Form className="signup-form">
+                  <h2>Create an account</h2>
+                      {Object.keys(InitialValues).map((InitialValue, i) => ( 
+                        <div key={i} className="form-control">
+                        <label htmlFor={InitialValue}>{InitialValue}</label>
+                        {(FormType(InitialValue) !== 'select')&& <Field 
+                            id={InitialValue} 
+                            name={InitialValue}
+                            type={FormType(InitialValue)}
+                            style={(formik.errors[InitialValue] && formik.touched[InitialValue]) && (formik.errors[InitialValue] && {border: "1px solid red"} )} 
+                         /> 
+                      }{(FormType(InitialValue) == 'select')&&
+                        <Field 
+                            id={InitialValue} 
+                            name={InitialValue}
+                            as="select"
+                            style={(formik.errors[InitialValue] && formik.touched[InitialValue]) && (formik.errors[InitialValue] && {border: "1px solid red"} )} 
+                         >
+                            
+                          {FormType(InitialValue)=="select" && OptionsMap(options)
+                            }
+                          </Field>}
+
+                        <ErrorMessage name={InitialValue} component={TextError}/>
+                        </div>
+                      ))}
+                      <button type="submit" 
+                             disabled={!formik.isValid} 
+                             style={{background : !formik.isValid && "grey"}}>Sign Up</button>
+                      </Form>
+                      )
+                  }
+              </Formik>
+  );
+};

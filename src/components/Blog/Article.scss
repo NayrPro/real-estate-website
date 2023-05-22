@@ -1,0 +1,19 @@
+.comment__form{
+    margin: 0 23% 2rem;
+	h4{
+    		margin-bottom: 0.5rem;
+	}
+	.comment__input{
+    		display: flex;
+    		flex-direction: column;
+    		position: relative;
+    		align-items: end;
+		textarea{
+    			width: 100%;
+		}
+		.send__comment{
+				margin-top: 1rem;
+				width: 55px;
+		}
+	}
+}

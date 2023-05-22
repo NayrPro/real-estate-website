@@ -1,58 +1,55 @@
-import { useState } from 'react'; 
+import * as Yup from 'yup'
 import './Signup.scss';
-
-interface LoginFormData {
-    email: string;
-    password: string;
-  }
+import { ErrorMessage, Field, Formik, Form } from 'formik';
+import TextError from '../Formik/TextError';
+import { FormType } from '../Formik/FormType';
+import React = require('react');
   
 export const LoginForm = () => {
-    const [formData, setFormData] = useState<LoginFormData>({
+  
+  const InitialValues = {
       email: '',
-      password: ''
-    });
+      password: '',
+  }
   
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, value } = e.target;
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: value
-      }));
-    };
+  const validationSchema = Yup.object({
+    email: Yup.string().required("Email required"),
+    password: Yup.string().required("Password required")
+  })
   
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      console.log(formData);
-      // send the form data to the server
-    };
+  const onSubmit = values =>{
+    console.log('Form data', values)
+  }
   
-    return (
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>Log in</h2>
-        <div className="form-control">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <button type="submit">Log In</button>
-      </form>
-    );
-  };
+  return (
+    <React.Fragment>
+    <Formik initialValues={InitialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}>
+            {
+              formik => (
+                <Form className="signup-form">
+                  <h2>Log in</h2>
+                      {Object.keys(InitialValues).map((InitialValue, i) => ( 
+                        <div key={i} className="form-control">
+                        <label htmlFor={InitialValues[i]}>{InitialValue}</label>
+                        <Field 
+                            id={InitialValue} 
+                            name={InitialValue}
+                            type={FormType(InitialValue)}
+                            style={(formik.errors[InitialValue] && formik.touched[InitialValue]) && (formik.errors[InitialValue] && {border: "1px solid red"} )} 
+                            />
+                        <ErrorMessage name={InitialValue} component={TextError}/>
+                        </div>
+                      ))}
+                      <button type="submit" 
+                             disabled={!formik.isValid} 
+                             style={{background : !formik.isValid && "grey"}}>Log In</button>
+                      </Form>
+                      )
+                  }
+              </Formik>
+    </React.Fragment>
+  );
+};
   

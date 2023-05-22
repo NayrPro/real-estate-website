@@ -12,9 +12,13 @@
 
 .form-row select {
     padding: 14px 18px;
+    height: -moz-available;          
+    height: -webkit-fill-available;  
+    height: fill-available;
 }
 
 .search-btn{
+    cursor: pointer;
     background-color: #2e72ff;
     border: 1px solid beige;
     border-radius: 5px;
@@ -60,4 +64,12 @@
     font-size: 0.9rem;
 }
 
+}
+
+@media only screen and (max-width: 700px) {
+    .service-page{
+        .property-grid{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
 }

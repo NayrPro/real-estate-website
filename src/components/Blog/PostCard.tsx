@@ -9,6 +9,11 @@ type Props = {
 export const PostCard: React.FC<Props> = ({ posts }) => {
   return (
     <section className="blog-section">
+      <div className="post-new-article">
+        <button>
+          <Link to="/blog/article">New Article</Link>
+        </button>
+      </div>
     <h2 className="blog-section__title">Latest Blog Posts</h2>
     <div className="blog-section__posts">
       {posts.map((post, index) => (

@@ -1,8 +1,33 @@
+.post-new-article{
+    text-align: end;
+    margin-right: 1rem;
+    button{
+    border: 1px solid beige;
+    color: white;
+    padding: 11px 11px;
+    border-radius: 8px;
+    background-color: #3f51b5;
+        a{
+    	    color: white;
+	    }
+	    a:hover, a:active{
+	        text-decoration: none;
+	    }
+    }
+}
+
 .blog-card{
     display: flex;
     flex-direction: column;
     margin: auto auto 10rem;
     width: 70%;
+    background-color: white;
+}
+
+.blog-card-page{
+    display: flex;
+    flex-direction: column;
+    margin: 4.4rem 0 2rem !important;
     background-color: white;
 }
 

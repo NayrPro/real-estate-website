@@ -1,0 +1,38 @@
+.comment-content{
+    margin: 0 7% 4%;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 9px 0;
+    h4{
+        margin: 0;
+        border-bottom: 1px solid #dfdfdf;
+        padding: 0 2rem;
+    }
+}
+
+.comment__body{
+    margin: 0;
+    padding: 6px 30px;
+    font-size: .7rem;
+}
+
+.comment__date{
+    font-size: .9rem;
+    margin: 10px 17px;
+}
+
+.comment-btn-container{
+    position: relative;
+    text-align: end;
+}
+
+.comment-btn{
+cursor: pointer;
+background-color: #7ed0e6;
+border: 1px solid beige;
+border-radius: 5px;
+color: white;
+padding: 5px 9px;
+margin-right: 11px;
+}

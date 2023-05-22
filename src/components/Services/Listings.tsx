@@ -55,6 +55,9 @@ const properties : Property[] = [
       bedrooms: 3,
       bathrooms: 2,
       sqft: 2000,
+      seller: "@Home",
+      toBuy: true,
+      toRent: false,
       image: 'https://images.unsplash.com/photo-1472224371017-08207f84aaae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
@@ -68,6 +71,9 @@ const properties : Property[] = [
       bedrooms: 4,
       bathrooms: 3,
       sqft: 2500,
+      seller: "@Home",
+      toBuy: true,
+      toRent: false,
       image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
@@ -81,6 +87,9 @@ const properties : Property[] = [
       bedrooms: 4,
       bathrooms: 3,
       sqft: 2500,
+      seller: "@Home",
+      toBuy: true,
+      toRent: false,
       image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
@@ -94,6 +103,9 @@ const properties : Property[] = [
       bedrooms: 4,
       bathrooms: 3,
       sqft: 2500,
+      seller: "@Home",
+      toBuy: true,
+      toRent: false,
       image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
@@ -107,6 +119,9 @@ const properties : Property[] = [
       bedrooms: 4,
       bathrooms: 3,
       sqft: 2500,
+      seller: "@Home",
+      toBuy: true,
+      toRent: false,
       image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
@@ -120,6 +135,9 @@ const properties : Property[] = [
       bedrooms: 4,
       bathrooms: 3,
       sqft: 2500,
+      seller: "@Home",
+      toBuy: true,
+      toRent: false,
       image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     
