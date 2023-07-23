@@ -2,63 +2,37 @@ import { Field, Formik, Form } from 'formik';
 import { OptionsMap } from '../Formik/OptionsMap';
 import { useState, useEffect } from "react";
 import "./Presentation.scss";
+import { RootState } from '../../Store/store';
+import { getAsyncProperties } from '../../Store/reducers/propertiesReducer';
+import { useNavigate } from 'react-router-dom';
+import { ReplaceKeys } from '../Formik/ReplaceKeys';
+import { selectOptions } from '../functions/selectOptions'
+import { getAsyncCities } from '../../Store/reducers/filtersReducers';
+import { useAppDispatch, useAppSelector } from '../../Store/hooks';
+import { styleProps } from '../functions/styleProps';
+
 
 
 export const Presentation: React.FC = () => {
-  const options = {
-    citySlct:{
-      default: "Choose a city",
-    },
-    bedrooms:{
-      default:"Bedrooms",
-      1:"1+",
-      2:"2+",
-      3:"3+",
-      4:"4+"
-    },
-    bathrooms:{
-      default:"Bathrooms",
-      1:"1+",
-      2:"2+",
-      3:"3+"
-    },
-    maxPrice:{
-      default:"Max Price",
-      100000: '$100,000',
-      200000: '$200,000',
-      300000: '$300,000',
-      400000: '$400,000',
-      500000: '$500,000',
-      600000: '$600,000',
-      700000: '$700,000',
-      800000: '$800,000',
-      900000: '$900,000',
-      1000000: '$1,000,000'
-    },
-    minSqft: {
-      default:"Min Sqft",
-      1000: '1,000+',
-      1500: '1,500+',
-      2000: '2,000+',
-      2500: '2,500+',
-      3000: '3,000+'
-    }
-  }
+
+  const cities = useAppSelector((state : RootState) => state.filters.cities);
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   
   const InitialValues = {
     citySlct: '',
     bedrooms: '',
     bathrooms: '',
-    maxPrice: '',
-    minSqft: '',
+    max_price: '',
+    min_sqft: '',
   };
 
-  const onSubmit = values =>{
-    console.log('Form data', values)
-  }
+  useEffect(()=> {
+    dispatch(getAsyncCities());
+  },[])
 
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
-
+  
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize(window.innerWidth);
@@ -76,55 +50,27 @@ export const Presentation: React.FC = () => {
     
   }, [windowSize]);
 
-  function styleProps (selectValue){ 
-    let styles = {}
-        if (selectValue == "bedrooms" || selectValue == "bathrooms"){
-          if(windowSize<1000){
-            const style = {
-               display: "none"
-            }
-            styles = Object.assign(styles,style);
-          }else{
-            const style = {
-               display: "flex"
-            }
-            styles = Object.assign(styles,style);
-          }
-          
-        }
-        if (selectValue == "maxPrice" || selectValue == "minSqft"){
-          if(windowSize<700){
-            const style = {
-               display: "none"
-            }
-            styles = Object.assign(styles,style);
-          }else{
-            const style = {
-               display: "flex"
-            }
-            styles = Object.assign(styles,style);
-          }
-        }
-        return styles
-    }
-
-  return (
+    return (
     <section className="home-section">
       <div className="header">
         <h1 className="slogan">Find your dream home today</h1>
         <Formik initialValues={InitialValues}
-                onSubmit={onSubmit}>
+                onSubmit={(values: object) =>{
+                  const newValues = ReplaceKeys(values);
+                  dispatch(getAsyncProperties(newValues));
+                  navigate(`/buyorrent`);
+                }}>
           {
               formik => (
                 <Form className="property-search-form">
                     {
                       Object.keys(InitialValues).map((InitialValue, i) => (
-                          <div key={i} className="form-row" style={styleProps(InitialValue)}>
+                          <div key={i} className="form-row" style={styleProps(InitialValue, windowSize)}>
                             <Field 
                               id={InitialValue} 
                               name={InitialValue}
                               as="select">
-                                  {OptionsMap(options[InitialValue])}
+                                  {OptionsMap(selectOptions(cities)[InitialValue])}
                             </Field>
                         </div> 
                         )

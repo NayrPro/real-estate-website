@@ -6,9 +6,17 @@ import { RadioMap } from '../Formik/RadioMap';
 import '../User/Signup.scss';
 import './Sell.scss'
 import { OptionsMap } from '../Formik/OptionsMap';
+import { useAppDispatch, useAppSelector } from '../../Store/hooks';
+import { postAsyncProperties } from '../../Store/reducers/propertiesReducer';
+import { RootState } from '../../Store/store';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Sell = () => {
+
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state : RootState) => state.user.value);
+  const navigate = useNavigate();
 
   const radio = {
     transaction :{
@@ -63,14 +71,19 @@ export const Sell = () => {
     transaction: Yup.string().required("Transaction type required")
   })
   
-  const onSubmit = values =>{
-    console.log('Form data', values)
-  }
-  
     return (
       <Formik initialValues={InitialValues}
                 validationSchema={validationSchema}
-                onSubmit={onSubmit}>
+                onSubmit={(values : object) =>{
+                  const newKey = values['transaction']
+                  delete values['transaction']
+                  if (newKey !== "none"){
+                    const newProperty = {[newKey] : true}
+                    Object.assign(values, newProperty);
+                  }
+                  dispatch(postAsyncProperties({values, authToken: user["authToken"]}));
+                  navigate("/");
+                }}>
             {
               formik => (
                 <Form className="signup-form sell-form">

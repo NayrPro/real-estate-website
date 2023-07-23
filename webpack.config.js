@@ -2,9 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry : {
+    index: "./src/index.tsx"
+  },
   output: {
-    filename: "main.js",
+    filename: "[name].js",
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, "build"),
   },
   plugins: [
@@ -17,8 +20,9 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "build"),
     },
-    port: 3000,
+    port: 3000
   },
+  devtool: false,
   module: {
     // exclude node_modules
     rules: [
@@ -41,5 +45,19 @@ module.exports = {
   // pass all js files through Babel
   resolve: {
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
-  }
+  },
+  performance: {
+      hints: false
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        reactVendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+          name: 'vendor-react',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 };

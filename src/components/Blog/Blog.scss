@@ -14,7 +14,10 @@ body {
   background-color: $gray-100;
   color: $gray-900;
 }
-
+textarea{
+  min-height: 150px;
+  border-radius: 5px;
+}
 a {
   color: $primary;
   text-decoration: none;
@@ -26,6 +29,9 @@ a {
 
 .post-list {
   margin-top: 5rem;
+  .blog-section{
+    padding-top: 22px;
+  }
 }
 
 // Page styles

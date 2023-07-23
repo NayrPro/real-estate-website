@@ -1,4 +1,5 @@
 import './Services.scss';
+import {Link} from "react-router-dom"
 
 interface CardProps {
   title: string;
@@ -14,7 +15,7 @@ const Card: React.FC<CardProps> = ({ title, description, link, icon }) => (
 </span>
     <h3 className="card-title">{title}</h3>
     <p className="card-description">{description}</p>
-    <a className="card-link" href={link}>Learn more</a>
+    <Link className="card-link" to={link}>Learn more</Link>
   </div>
 );
 
@@ -25,13 +26,13 @@ export const Services: React.FC = () => (
           <Card
             title="Buy"
             description="Find your dream home today with our selection of properties for sale."
-            link="/buy"
+            link="/buyorrent"
             icon="attach_money"
           />
           <Card
             title="Rent"
             description="Browse our selection of rental properties and find the perfect place to call home."
-            link="/rent"
+            link="/buyorrent"
             icon="location_away"
           />
           <Card

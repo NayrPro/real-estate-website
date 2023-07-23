@@ -1,7 +1,7 @@
 export interface Property {
     _id: string;
     description: string;
-    image: string;
+    url: string;
     price: number;
     bedrooms: number;
     bathrooms: number;

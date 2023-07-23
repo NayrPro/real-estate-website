@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Property } from './Property';
 import './PropertyCard.scss';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../Store/store';
+import { setId } from '../../Store/reducers/propertiesReducer';
 
 interface Props {
   property: Property;
@@ -12,7 +16,9 @@ function formatNumber(num) {
 
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
+  const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const dispatch = useDispatch<AppDispatch>();
   
     useEffect(() => {
       const handleWindowResize = () => {
@@ -31,8 +37,8 @@ const PropertyCard: React.FC<Props> = ({ property }) => {
       
     }, [windowSize]);
   return (
-    <div className="property-card">
-      <img src={property.image} alt={property.description} />
+    <div id={property._id} className="property-card" onClick={() => {dispatch(setId({payload : property._id})); navigate(`/buyorrent`)} }>
+      <img src={property.url} alt={property.description} />
       <div className="card-bottom">
         <h2>${formatNumber(property.price)}</h2>
         <p>{property.address}, {property.zip}</p>

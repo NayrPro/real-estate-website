@@ -18,7 +18,7 @@ export const FormType = (input) => {
   case 'email':
     return 'email';
     break;
-  case 'minSqft':
+  case 'min_sqft':
     return 'select';
     break;
   case 'citySlct':
@@ -27,7 +27,7 @@ export const FormType = (input) => {
   case 'stateSlct':
     return 'select';
     break;
-  case 'maxPrice':
+  case 'max_price':
     return 'select';
     break;
   case 'bedrooms':

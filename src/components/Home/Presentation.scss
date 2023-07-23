@@ -1,6 +1,5 @@
 .home-section {
     position: relative;
-    // height: 100vh;
     width: 100%;
     background-color: #fff;
     background-image: url("https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
@@ -64,6 +63,7 @@
       border-radius: 0;
       cursor: pointer;
       border-radius: 64px;
+      background-color: white;
     }
   
     .search-btn {

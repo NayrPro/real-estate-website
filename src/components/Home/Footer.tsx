@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-4 footer-about-us">
             <h4>About Us</h4>
             <p>At @Home, we are committed to providing our clients with exceptional service and expertise in the real estate industry. Our team of experienced agents has a deep understanding of the local market and can help you buy, sell, or rent properties with confidence.</p>
           </div>

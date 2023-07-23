@@ -7,16 +7,13 @@
 
     .row {
       display: flex;
-      // gap: 200px;
       gap: 5%;
       justify-content: space-around;
-      // margin-left: 60px;
-      // margin-bottom: 136px;
-      // margin-right: 100px;
       margin: 0px 8% 11% 4%;
 
       p{
         width: 51%;
+        text-align: justify;
       }
     } 
 
@@ -80,6 +77,20 @@
       }
     }
 
+    @media only screen and (min-width: 800px) {
+    
+      .footer-about-us{
+        width: 48%;
+      }
+
+      .row{
+        p{
+          width: 80%;
+        }
+      }
+
+    }
+    
     @media only screen and (max-width: 800px) {
       .row {
           margin: 0px 8% 4% 4%;

@@ -1,0 +1,46 @@
+.acc {
+    margin: 2rem 2rem 0;
+    width: 100%;
+    
+    .acc-tbl{
+	    text-align: center;
+	    width: 100%;
+	    max-width: 100%;
+	    border-collapse: collapse;
+	    .acc-tbl-head{
+	    	background-color: #ffa669;
+    		color: white;
+	    }
+	    tbody tr:nth-child(even) {
+	
+			background-color: #f7f7f7;
+	
+		}
+		tbody tr{
+			td:not(:first-child) {
+				padding-top:13px;
+				padding-bottom:13px; 
+			}
+		}
+		.acc-td{
+			.acc-btn-delete{
+			    color: white;
+			    background-color: red;
+			    border: none;
+			    border-radius: 4px;
+			    font-weight: bold;
+			    cursor: pointer;
+				margin-right: 4px;
+			}
+			.acc-btn-update{
+			    color: white;
+			    background-color: rgb(9, 209, 9);
+			    border: none;
+			    border-radius: 4px;
+			    font-weight: bold;
+			    cursor: pointer;
+				margin-right: 4px;
+			}
+		}
+	}
+}

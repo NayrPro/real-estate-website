@@ -5,7 +5,10 @@ import { BlogPreview } from "./BlogPreview"
 import ClientFeedbackSection from "./ClientFeedback";
 import Footer from "./Footer";
 import { Services } from "./Services";
-import { BlogArray } from "./models/BlogModel";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../Store/hooks";
+import { getAsyncPosts } from "../../Store/reducers/blogReducer";
+import { RootState } from "../../Store/store";
 
 const clientFeedbacks: ClientFeedbackAttributes[] = [
     {
@@ -28,44 +31,21 @@ const clientFeedbacks: ClientFeedbackAttributes[] = [
     }
   ];
 
-  const posts: BlogArray[] = [
-    {
-      id: "",
-      title: 'Top 10 Tips for First-Time Homebuyers',
-      body: 'Avoid rookie mistakes',
-      image:"https://images.unsplash.com/photo-1598257006626-48b0c252070d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      author_username: "",
-      date: "",
-      commentsNb: 0
-    },
-    {
-      id: "",
-      title: 'How to Negotiate the Best Deal on Your Next Home',
-      body: 'Get the most bang for your buck',
-      image:"https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      author_username: "",
-      date: "",
-      commentsNb: 0
-    },
-    {
-      id: "",
-      title: 'The Pros and Cons of Buying a Fixer-Upper',
-      body: 'Is it worth the investment?',
-      image:"https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=996&q=80",
-      author_username: "",
-      date: "",
-      commentsNb: 0
-    }
-  ];
-
 export const Home: React.FC = () => {
+    const dispatch = useAppDispatch()
+    const blogposts = useAppSelector((state : RootState) => state.posts.values);
+
+    useEffect(() => {
+      dispatch(getAsyncPosts({}))
+    }, [])
+
     return (
         <div>
             <Presentation />
             <Listings />
             <Services />
             <ClientFeedbackSection clientFeedbacks={clientFeedbacks}/>
-            <BlogPreview posts={posts} />
+            <BlogPreview posts={blogposts} />
             <Footer/>
         </div>
 

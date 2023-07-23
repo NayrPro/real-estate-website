@@ -1,0 +1,31 @@
+.account-container{
+    margin-top: 8rem;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.account-categories{
+    padding-right: 4rem;
+    border-right: 1px solid #ffdbbd;
+    p{
+        cursor: pointer;
+    }
+}
+
+.account-clicked{
+    color: #ff7f14;
+}
+
+.account-element {
+    width: 100%;
+    padding: 1rem;
+    padding-left: 3rem;
+    div{
+        margin: 1rem 0rem 1rem;
+    }
+}
+
+.account-elt-disabled{
+    display: none;
+}

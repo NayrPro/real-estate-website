@@ -4,14 +4,19 @@ import { ErrorMessage, Field, Formik, Form } from 'formik';
 import TextError from '../Formik/TextError';
 import { FormType } from '../Formik/FormType';
 import { OptionsMap } from '../Formik/OptionsMap';
+import { createAsyncUser } from '../../Store/reducers/userReducer';
+import { useAppDispatch } from '../../Store/hooks';
 
 
 export const SignUpForm = () => {
+
+  const dispatch = useAppDispatch();
   
   const options = {
     default: 'Choose an option',
     seller: 'Seller',
-    blogger: 'Blogger'
+    blogger: 'Blogger',
+    none: 'None'
   }
 
   const InitialValues = {
@@ -27,15 +32,19 @@ export const SignUpForm = () => {
     password: Yup.string().required("Password required"),
     usertype: Yup.string().required("Role required")
   })
-
-  const onSubmit = values =>{
-    console.log('Form data', values)
-  }
   
   return (
     <Formik initialValues={InitialValues}
                 validationSchema={validationSchema}
-                onSubmit={onSubmit}>
+                onSubmit={(values : object) =>{
+                  const newKey = values['usertype']
+                  delete values['usertype']
+                  if (newKey !== "none"){
+                    const newProperty = {[newKey] : true}
+                    Object.assign(values, newProperty);
+                  }
+                  dispatch(createAsyncUser(values));
+                }}>
             {
                 formik => (
                 <Form className="signup-form">

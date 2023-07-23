@@ -1,5 +1,5 @@
 export type BlogArray = {
-    id : string,
+    _id : string,
     title : string,
     body : string,
     image: string,

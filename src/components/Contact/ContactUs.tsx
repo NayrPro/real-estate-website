@@ -3,7 +3,10 @@ import './ContactUs.scss';
 import { FormType } from '../Formik/FormType';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import TextError from '../Formik/TextError';
+import { useNavigate } from 'react-router-dom';
 export const ContactUs: React.FC = () => {
+
+    const navigate = useNavigate();
 
     const InitialValues = {
         name: '',
@@ -17,10 +20,6 @@ export const ContactUs: React.FC = () => {
         message: Yup.string().required("Message empty")
     })
 
-    const onSubmit = values =>{
-         console.log('Form data', values)
-    }
-
     return (
         <div className="contact-us-container">
             <h1>Contact Us</h1>
@@ -28,7 +27,7 @@ export const ContactUs: React.FC = () => {
                     <p>Please use the form below to get in touch with us.</p>
                     <Formik initialValues={InitialValues}
                 validationSchema={validationSchema}
-                onSubmit={onSubmit}>
+                onSubmit={() => navigate("/")}>
             {
                 formik => (
                 <Form>

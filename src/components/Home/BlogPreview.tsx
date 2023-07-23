@@ -11,7 +11,7 @@ export const BlogPreview: React.FC<Props> = ({ posts }) => {
     <section className="blog-preview-section">
       <h2 className="blog-preview-section__title">Latest Blog Posts</h2>
       <div className="blog-preview-section__posts">
-        {posts.map((post, index) => (
+        {posts.slice(0, 3).map((post, index) => (
           <div 
             className="blog-preview-card" 
             key={index}
@@ -19,7 +19,7 @@ export const BlogPreview: React.FC<Props> = ({ posts }) => {
           >
             <h3 className="blog-preview-card__title">{post.title}</h3>
             <p className="blog-preview-card__description">{post.body}</p>
-            <Link to={`/blog/${index}`} className="blog-preview-card__link">
+            <Link to={`/blog/${post._id}`} className="blog-preview-card__link">
               Read More
             </Link>
           </div>
