@@ -27,7 +27,7 @@ export const isEmpty = (val) => {
 
 const getProperties = async (dataObject : object) => {
   try {
-    const response = await axios.get('http://localhost:27017/properties', {params : dataObject});
+    const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties', {params : dataObject});
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -50,7 +50,7 @@ export const getAsyncProperties = createAsyncThunk(
 const getProperty = async (dataObject : object) => {
   try {
     const id = dataObject['id'];
-    const response = await axios.get(`http://localhost:27017/properties/${id}`);
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/properties/${id}`);
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -69,7 +69,7 @@ const postProperties = async (dataObject : object) => {
   try {
     const token = dataObject['authToken'];
     const values = dataObject['values'];
-    const response = await axios.post('http://localhost:27017/properties', values, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.post('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties', values, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -89,7 +89,7 @@ const updateProperty = async (dataObject : object) => {
     const token = dataObject['authToken'];
     const id = dataObject['id'];
     const values = dataObject['values'];
-    await axios.patch(`http://localhost:27017/properties/${id}`, values, { headers: { 'Authorization': `Bearer ${token}` } });
+    await axios.patch(`https://agreeable-tweed-jacket-dog.cyclic.cloud/properties/${id}`, values, { headers: { 'Authorization': `Bearer ${token}` } });
   } catch (error) {
     throw new Error('Failed to fetch data');
   }
@@ -107,8 +107,8 @@ const deleteMyProperty = async (dataObject : object) => {
     const token = dataObject['authToken'];
     const id = dataObject['id'];
     const seller = {seller : dataObject['seller']};
-    await axios.delete(`http://localhost:27017/properties/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
-    const response = await axios.get('http://localhost:27017/properties', {params : seller});
+    await axios.delete(`https://agreeable-tweed-jacket-dog.cyclic.cloud/properties/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties', {params : seller});
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -127,8 +127,8 @@ const deleteProperty = async (dataObject : object) => {
   try {
     const token = dataObject['authToken'];
     const id = dataObject['id'];
-    await axios.delete(`http://localhost:27017/properties/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
-    const response = await axios.get('http://localhost:27017/properties');
+    await axios.delete(`https://agreeable-tweed-jacket-dog.cyclic.cloud/properties/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties');
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');

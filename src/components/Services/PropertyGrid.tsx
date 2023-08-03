@@ -59,7 +59,7 @@ const PropertyGrid: React.FC<Props> = ({ property }) => {
   const buyingProperty = () => {
     if(Object.keys(user).length > 0){
       dispatch(postAsyncTransaction({property_id : property._id, authToken: user["authToken"]})); 
-      navigate(0); 
+      navigate('/account'); 
     }else{
       navigate('/login'); 
     }

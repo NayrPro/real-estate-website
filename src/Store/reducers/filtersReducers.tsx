@@ -63,7 +63,7 @@ export interface FilterState {
 
   const getCities = async () => {
     try {
-      const response = await axios.get('http://localhost:27017/properties');
+      const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties');
       const cities = Cities(response.data);
       return cities;
     } catch (error) {
@@ -72,7 +72,7 @@ export interface FilterState {
   };
   const getStates = async () => {
     try {
-      const response = await axios.get('http://localhost:27017/properties');
+      const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties');
       const states = States(response.data);
       return states;
     } catch (error) {
@@ -81,7 +81,7 @@ export interface FilterState {
   };
   const getSellers = async () => {
     try {
-      const response = await axios.get('http://localhost:27017/properties');
+      const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/properties');
       const sellers = Sellers(response.data);
       return sellers;
     } catch (error) {

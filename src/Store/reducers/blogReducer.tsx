@@ -18,7 +18,7 @@ const initialState = {
 
 const getPosts = async (dataObject: object) => {
   try {
-    const response = await axios.get('http://localhost:27017/posts', {params: dataObject});
+    const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/posts', {params: dataObject});
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -27,7 +27,7 @@ const getPosts = async (dataObject: object) => {
 
 const getPost = async (dataString : string) => {
   try {
-    const response = await axios.get(`http://localhost:27017/post/${dataString}`);
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/post/${dataString}`);
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -54,7 +54,7 @@ const postPosts = async (dataObject : object) => {
   try {
     const token = dataObject['authToken'];
     const values = dataObject['values'];
-    const response = await axios.post('http://localhost:27017/posts', values, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.post('https://agreeable-tweed-jacket-dog.cyclic.cloud/posts', values, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -74,7 +74,7 @@ const updatePost = async (dataObject : object) => {
     const id = dataObject['id'];
     const token = dataObject['authToken'];
     const values = dataObject['values'];
-    await axios.patch(`http://localhost:27017/post/${id}`, values, { headers: { 'Authorization': `Bearer ${token}` } });
+    await axios.patch(`https://agreeable-tweed-jacket-dog.cyclic.cloud/post/${id}`, values, { headers: { 'Authorization': `Bearer ${token}` } });
   } catch (error) {
     throw new Error('Failed to fetch data');
   }
@@ -92,8 +92,8 @@ const deletePost = async (dataObject : object) => {
     const id = dataObject['id'];
     const token = dataObject['authToken'];
     const username = {author_username : dataObject['author_username']};
-    await axios.delete(`http://localhost:27017/post/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
-    const response = await axios.get('http://localhost:27017/posts', {params: username});
+    await axios.delete(`https://agreeable-tweed-jacket-dog.cyclic.cloud/post/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get('https://agreeable-tweed-jacket-dog.cyclic.cloud/posts', {params: username});
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');

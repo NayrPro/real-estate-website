@@ -21,7 +21,7 @@ const getComment = async (dataObject: object) => {
   try {
     const token = dataObject['authToken'];
     const id = dataObject['id'];
-    const response = await axios.get(`http://localhost:27017/comments/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comments/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -40,7 +40,7 @@ const getUserComments = async (dataObject: object) => {
   try {
     const token = dataObject['authToken'];
     const userId = dataObject['id'];
-    const response = await axios.get(`http://localhost:27017/comments/user/${userId}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/user/${userId}`, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -58,7 +58,7 @@ export const getAsyncUserComments = createAsyncThunk(
 const getComments = async (dataObject: object) => {
   try {
     const token = dataObject['authToken'];
-    const response = await axios.get(`http://localhost:27017/comments`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comments`, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -77,7 +77,7 @@ const postComment = async (dataObject: object) => {
   try {
     const token = dataObject['authToken'];
     const body = {post_id : dataObject['post_id'], body : dataObject['body']};
-    const response = await axios.post('http://localhost:27017/comments', body, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.post('https://agreeable-tweed-jacket-dog.cyclic.cloud/comments', body, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -97,7 +97,7 @@ const updateComment = async (dataObject : object) => {
     const token = dataObject['authToken'];
     const body = {body : dataObject['body']};
     const id = dataObject['id'];
-    await axios.patch(`http://localhost:27017/comment/${id}`, body, { headers: { 'Authorization': `Bearer ${token}` } });
+    await axios.patch(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comment/${id}`, body, { headers: { 'Authorization': `Bearer ${token}` } });
   } catch (error) {
     throw new Error('Failed to fetch data');
   }
@@ -115,8 +115,8 @@ const deleteMyComment = async (dataObject : object) => {
     const token = dataObject['authToken'];
     const id = dataObject['id'];
     const userId = dataObject['userId'];
-    await axios.delete(`http://localhost:27017/comment/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
-    const response = await axios.get(`http://localhost:27017/comments/user/${userId}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    await axios.delete(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comment/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comments/user/${userId}`, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
@@ -134,8 +134,8 @@ const deleteComment = async (dataObject : object) => {
   try {
     const token = dataObject['authToken'];
     const id = dataObject['id'];
-    await axios.delete(`http://localhost:27017/comment/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
-    const response = await axios.get(`http://localhost:27017/comments`, { headers: { 'Authorization': `Bearer ${token}` } });
+    await axios.delete(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comment/${id}`, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.get(`https://agreeable-tweed-jacket-dog.cyclic.cloud/comments`, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data');
