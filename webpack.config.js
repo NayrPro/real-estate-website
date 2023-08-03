@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     chunkFilename: '[name].bundle.js',
+    publicPath: "/real-estate-website/",
     path: path.resolve(__dirname, "build"),
   },
   plugins: [

@@ -9,7 +9,7 @@
     "start": "webpack serve --mode development",
     "client": "npm run build",
     "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "deploy" : "gh-pages -d real-estate-website"
   },
   "keywords": [],
   "author": "",
