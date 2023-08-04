@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://nayrpro.github.io/real-estate-website",
+  "homepage": "https://nayrpro.github.io/real-estate-website/",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
