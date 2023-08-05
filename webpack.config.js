@@ -6,9 +6,10 @@ module.exports = {
     index: "./src/index.tsx"
   },
   output: {
-    filename: "./static/[name].js",
-    chunkFilename: './static/[name].bundle.js',
-    path: path.resolve(__dirname, "build"),
+    filename: "[name].js",
+    chunkFilename: '[name].bundle.js',
+    // path: path.resolve(__dirname, "build"),
+    path: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
