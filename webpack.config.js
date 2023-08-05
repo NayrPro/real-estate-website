@@ -6,8 +6,8 @@ module.exports = {
     index: "./src/index.tsx"
   },
   output: {
-    filename: "./[name].js",
-    chunkFilename: './[name].bundle.js',
+    filename: "./static/[name].js",
+    chunkFilename: './static/[name].bundle.js',
     path: path.resolve(__dirname, "build"),
   },
   plugins: [
